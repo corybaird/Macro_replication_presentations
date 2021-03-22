@@ -1,0 +1,20 @@
+name,nice_name,nonstationary,lb,ub
+gs1,1y gov bond\newline   yield (%),0,-0.1,0.25
+logsp500, S&P500\newline(100 x log),1,-2.5,1.5
+us_cpi,CPI\newline(100 x log),1,-0.2,0.2
+us_ip,Ind. Prod.\newline(100 x log),1,-0.8,0.2
+ebpnew,EBP\newline(%),0,-0.08,0.08
+exp_gdp_12m,Expected GDP\newline  growth (%),0,-0.12,0.1
+exp_cpi_12m,Expected\newlineinflation (%),0,-0.12,0.1
+exp_std_cpi_12m,CPI fcast disp.\newline(std. of %p.a.),0,,
+sven5f5,5y-5y forward\newline   rate (%),0,-0.08,0.08
+bkeven05,5y break-even\newlineinflation rate (%),0,-0.12,0.09
+us_rgdp,Real GDP\newline(100 x log),1,-0.3,0.2
+us_gdpdef,GDP deflator\newline(100 x log),1,-0.15,0.1
+de1y_haver,1y  Bund\newlineyield (%),0,-0.17,0.1
+stoxx50,Stock index\newline(100 x log),1,-2.5,3
+ea_bbb_oas_all_fred,BBB bond\newlinespread (%),0,-0.33,0.66
+ea_rgdp,Real GDP\newline(100 x log),1,-0.22,0.22
+ea_gdpdef,GDP deflator\newline(100 x log),1,,
+hicp,      HICP\newline(100 x log),1,,
+ea_ip_excl_constr, Ind. Prod.\newline(100 x log),1,,
