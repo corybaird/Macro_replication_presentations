@@ -1,0 +1,43 @@
+
+These are the files used to set up and solve the two baseline
+macoreconomic models used in the paper, "The Sensitivity of Long-Term
+Interest Rates to Economic News: Evidence and Implications for
+Macroeconomic Models," by Refet Gurkaynak, Brian Sack, and Eric Swanson.
+
+Files that begin with "cgg" are for the Clarida-Gali-Gertler model.
+Files that begin with "r2k" are for the Rudebusch model.
+Files that have the term "pistar" in them (e.g., "cggpistar.m") are for the
+version of the model with a time-varying inflation target, pistar.
+
+There are four Matlab programs (cgg.m, cggpistar.m, r2k.m, and
+r2kpistar.m) which, when run, should reproduce all of the figures used in
+the paper.  These programs were run in Matlab version 6 on a Sun Sparc
+workstation running Solaris 2.9 (Solaris 9).
+
+Note that, because these models are forward-looking, you need AIM (or
+some other linear rational-expectations equation solver) to solve them.
+We have included a version of AIM with these files in the subdirectory
+"aim/".  However, the included version of the parser ("mdlez-aim") will
+only run in Unix-type environments--to run the parser on a PC, you will
+need to install either the Cygwin public domain utilities or go to the
+Federal Reserve Board's public web site and download a PC-compatible
+version of AIM.  If you are interested only in replicating the figures in
+the paper, without altering the models at all, then you do not need the
+parser, since we have included the parser output for each model (e.g.,
+"cgg_aim_data.m" and "cgg_aim_matrices.m").
+
+Parameter values in the models can be changed without re-parsing.  Just
+modify the corresponding parameter values in the "cgg.m", "r2k.m",
+etc. files.  Refer to the original model files ("cgg", "r2k", etc.) to
+see how each parameter enters.
+
+To make more significant modifications to the models, you must modify the
+equations in the original model files, ("cgg", "cggpistar", "r2k", and
+"rskpistar"), and then re-parse the files.
+
+
+
+
+
+
+

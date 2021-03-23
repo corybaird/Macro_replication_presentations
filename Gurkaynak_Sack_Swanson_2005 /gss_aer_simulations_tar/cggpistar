@@ -1,0 +1,72 @@
+
+MODEL > CGG
+
+ENDOG> 
+	pi
+	y
+	i
+	cbpistar
+	pspistar
+	epspi
+	epsy
+	ihat
+	pibar
+	pigap
+
+
+EQUATION > INFLATION
+EQTYPE >   STOCH
+EQ >       pigap = DELTA * LEAD(pigap,1)
+               + LAMBDA * y
+               + epspi
+
+EQUATION > OUTPUT
+EQTYPE >   STOCH
+EQ >       y = LEAD(y,1)
+               - GAMMA * (i - LEAD(pi,1))
+               + epsy
+
+EQUATION > POLICYRULE
+EQTYPE >   IMPOSED
+EQ >       i = C*LAG(i,1)
+		+ (1-C) * (pibar + (A-1) * (pibar - cbpistar) + B*y)
+
+EQUATION > CBPISTAR
+EQTYPE >   STOCH
+EQ >       cbpistar = LAG(cbpistar,1)
+		+ THETA * (LAG(pibar,1) - LAG(cbpistar,1))
+
+EQUATION > PSPISTAR
+EQTYPE >   STOCH
+EQ >       pspistar = LAG(pspistar,1)
+		+ THETA * (LAG(pibar,1) - LAG(pspistar,1))
+		- KAPPA*(i - ihat)
+
+EQUATION > EPSPI
+EQTYPE >   STOCH
+EQ >       epspi = PHIPI * LAG(epspi,1)
+
+EQUATION > EPSY
+EQTYPE >   STOCH
+EQ >       epsy = PHIY * LAG(epsy,1)
+
+EQUATION > POLICYRULE
+EQTYPE >   IMPOSED
+EQ >       ihat = C*LAG(i,1)
+		+ (1-C) * (pibar + (A-1) * (pibar - pspistar) + B*y)
+
+EQUATION > PIBAR
+EQTYPE >   STOCH
+EQ >       pibar = (pi+LAG(pi,1)+LAG(pi,2)+LAG(pi,3)) / 4
+
+EQUATION > PIGAP
+EQTYPE >   STOCH
+EQ >       pigap = pi - pspistar
+
+
+
+
+
+
+
+END

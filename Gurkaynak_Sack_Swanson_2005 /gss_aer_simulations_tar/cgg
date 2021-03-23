@@ -1,0 +1,42 @@
+
+MODEL > CGG
+
+ENDOG> 
+	pi
+	y
+	i
+	epspi
+	epsy
+
+
+EQUATION > INFLATION
+EQTYPE >   STOCH
+EQ >       pi = DELTA * LEAD(pi,1)
+               + LAMBDA * y
+               + epspi
+
+EQUATION > OUTPUT
+EQTYPE >   STOCH
+EQ >       y = LEAD(y,1)
+               - GAMMA * (i - LEAD(pi,1))
+               + epsy
+
+EQUATION > POLICYRULE
+EQTYPE >   IMPOSED
+EQ >       i = C*LAG(i,1)
+		+ (1-C) * (A*(pi+LAG(pi,1)+LAG(pi,2)+LAG(pi,3))/4 + B*y)
+
+EQUATION > EPSPI
+EQTYPE >   STOCH
+EQ >       epspi = PHIPI * LAG(epspi,1)
+
+EQUATION > EPSY
+EQTYPE >   STOCH
+EQ >       epsy = PHIY * LAG(epsy,1)
+
+
+
+
+
+
+END

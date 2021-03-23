@@ -1,0 +1,59 @@
+
+MODEL > R2K
+
+ENDOG> 
+	pi
+	y
+	i
+	lpibar
+	epspi
+	epsy
+	i1
+	Di1
+
+
+EQUATION > INFLATION
+EQTYPE >   STOCH
+EQ >       pi = MU*LAG(lpibar,1)
+               + (1-MU)*(.67*LAG(pi,1) - .14*LAG(pi,2)
+                                 +.40*LAG(pi,3)+.07*LAG(pi,4))
+               + .13*LAG(y,1)
+	       + epspi
+
+
+EQUATION > OUTPUT
+EQTYPE >   STOCH
+EQ >       y = 1.15*LAG(y,1) -.27*LAG(y,2) -.09*(LAG(i,1)-LAG(lpibar,1))
+	       + epsy
+
+
+EQUATION > POLICYRULE
+EQTYPE >   IMPOSED
+EQ >       i = C*LAG(i,1)
+		+ (1-C) * (A * (pi+LAG(pi,1)+LAG(pi,2)+LAG(pi,3))/4
+				+ B*y)
+
+EQUATION > DEFLPIBAR
+EQTYPE >   IMPOSED
+EQ >       lpibar = (LEAD(pi,1) + LEAD(pi,2) + LEAD(pi,3) + LEAD(pi,4)) / 4
+
+
+EQUATION > EPSPI
+EQTYPE >   STOCH
+EQ >       epspi = PHIPI * LAG(epspi,1)
+
+EQUATION > EPSY
+EQTYPE >   STOCH
+EQ >       epsy = PHIY * LAG(epsy,1)
+
+EQUATION > i1
+EQTYPE >   STOCH
+EQ >       i1 = (i + LEAD(i,1) + LEAD(i,2) + LEAD(i,3))/4
+
+EQUATION > Di1
+EQTYPE >   STOCH
+EQ >       Di1 = i1 - LAG(i1,1)
+
+
+
+END
