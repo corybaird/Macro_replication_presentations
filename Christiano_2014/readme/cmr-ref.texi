@@ -1,0 +1,136 @@
+\input texinfo @c -*-texinfo-*-
+@setfilename cmr.info
+@settitle CMR Model -- Reference Manual
+@finalout
+@set frontcontents
+
+
+@set UPDATED 18 June 2013
+@set EDITION 1.0
+
+@copying
+Copyright @copyright{} 2013 Lawrence J. Christiano and Benjamin K. Johannsen
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with the
+Invariant Sections being ``GNU General Public License'' and ``Free Software
+Needs Free Documentation''.  A copy of the
+license is included in the section entitled ``GNU Free Documentation
+License''.
+@end copying
+
+@titlepage
+@title The CMR Model
+@subtitle The DSGE in ``Risk Shocks'' by Christiano, Motto, and Rostagno
+@subtitle Code Reference Manual
+@subtitle Edition @value{EDITION}
+@subtitle @value{UPDATED}
+
+@c @author Lawrence J. Christiano
+@c Northwestern University
+@c @comment @email{lchrist@@northwestern.edu}
+@c @sp 1
+@c 
+@c @author Roberto Motto
+@c European Central Bank
+@c @comment @email{roberto.motto@@ecb.int}
+@c @sp 1
+@c 
+@c @author Massimo V. Rostagno
+@c European Central Bank
+@c @comment @email{massimo.rostagno@@ecb.int}
+@c @sp 1
+
+@author Manual by Benjamin K. Johannsen
+Northwestern University
+@c @email{benjohannsen@@u.northwestern.edu}
+@sp 1
+
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@iftex
+@ifset frontcontents
+@contents
+@end ifset
+@end iftex
+
+@ifnottex
+@node Top, Introduction, (dir), (dir)
+@top CMR
+
+This file documents the dynare code for the @sc{CMR} model.
+It corresponds to release @value{VERSION} of the code.
+
+@insertcopying
+@sp 1
+@end ifnottex
+
+@menu
+* Introduction::
+* Using the Code::
+* Producing the Graphs::
+* Coding Standards::
+* Name Index::
+@end menu
+
+@node Introduction, Using the Code, Top, Top
+@chapter Introduction
+@include intro.texi
+
+@node Using the Code, Coding Standards, Introduction, Top
+@chapter Using the Code
+@cindex Using the Code
+@include using.texi
+
+@node Producing the Graphs, Producing the Tables, Using the Code, Top
+@chapter Producing the Graphs
+@cindex Producing the Graphs
+@include graphs.texi
+
+@node Producing the Tables, Coding Standards, Producing the Graphs, Top
+@chapter Producing the Tables
+@cindex Producing the Tables
+@include tables.texi
+
+@node Coding Standards, GNU General Public License, Name Index, Top
+@chapter Coding Standards
+@cindex Coding Standards
+@include coding.texi
+
+@node Name Idex, GNU General Public License, Coding Standards, Top
+@chapter Name Index
+@cindex Name Index
+@include names.texi
+
+@node GNU General Public License, GNU Free Documentation License, Coding Standards, Top
+@unnumbered GNU General Public License
+@include gpl.texi
+
+@node GNU Free Documentation License, , GNU General Public License, Top
+@unnumbered GNU Free Documentation License
+@include fdl.texi
+
+@iftex
+@normalbottom
+@end iftex
+
+@ifclear frontcontents
+@comment Use @setchapternewpage odd to ensure that the contents starts 
+@comment on an odd page so that it can always be moved to the front when 
+@comment printing two-up.
+@setchapternewpage odd
+@contents
+@end ifclear
+
+@ifset extrablankpages
+@page
+@headings off
+@*
+@page
+@*
+@end ifset
+@bye

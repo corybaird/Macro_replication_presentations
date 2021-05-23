@@ -1,0 +1,151 @@
+@c Copyright (C)  2013 Benjamin K. Johannsen
+@c Permission is granted to copy, distribute and/or modify
+@c this document under the terms of the GNU Free
+@c Documentation License, Version 1.3 or any later version
+@c published by the Free Software Foundation; with no
+@c Invariant Sections, no Front-Cover Texts, and no
+@c Back-Cover Texts.  A copy of the license is included in
+@c the section entitled ``GNU Free Documentation License''.
+
+The analysis in the paper is done in several subdirectories.  In order to 
+reduce the possibility of error, the model files and other files
+that are constant accross different versions of the analysis
+are stored in the top-level directory.  Additionally, several
+files from Dynare had to be changed in order to accommodate the
+model.  Before starting to use the code, make sure that
+@code{/path/to/cmrfiles} is on the Matlab search path,
+where @code{/path/to} is a stand in for the directory structure
+leading to the @code{cmrfiles} directory.  This can be done
+with an @code{addpath} command. This ensures that the custom Dynare
+files and the steady state file will be found by Dynare.
+In this section of the reference manual, we document
+the model files and the custom Dynare files.
+
+@menu
+* Model Files::
+* Custom Dynare Files::
+@end menu
+
+@node Model Files
+@section Model Files
+This section describes files specific to the @sc{CMR} model.
+These files are located in the top directory of the zip file
+that contains the code.  These files are used by the code that
+does the analysis and graphing in each of the subdirectories.
+
+@menu
+* cmr_declarations.mod::
+* cmr_estimated_params.mod::
+* cmr_estimated_params_init.mod::
+* cmr_model.mod::
+* cmr_parameters.mod::
+* cmr_shocks.mod::
+* cmr_steadystate.m::
+* data_BAAoverTB.mat::
+@end menu
+
+@node cmr_declarations.mod
+@subsection cmr_declarations.mod
+The file @code{cmr_declarations.mod} 
+declares variables using the @code{var}, @code{varexo}, and
+@code{parameters} commands. More information about these commands
+can be found at @uref{http://www.dynare.org/manual/index_12.html}.
+This file is included in
+@code{cmr.mod} using the @code{@@# include} command.
+
+@node cmr_estimated_params.mod
+@subsection cmr_estimated_params.mod
+The file @code{cmr_estimated_params.mod}
+declares priors for the estimated parameters in the @code{estimated_params} block.
+More information about the @code{estimated_params} block
+can be found at @uref{http://www.dynare.org/manual/index_24.html#index-estimated_005fparams}.
+This file is included in
+@code{cmr.mod} using the @code{@@# include} command.
+
+@node cmr_estimated_params_init.mod
+@subsection cmr_estimated_params_init.mod
+The file @code{cmr_estimated_params_init.mod} declares
+initial values of the estimated parameters in the @code{estimated_params_init}
+block. 
+More information about the @code{estimated_params_init} block
+can be found at @uref{http://www.dynare.org/manual/index_24.html#index-estimated_005fparams_005finit}.
+This file is included in
+@code{cmr.mod} using the @code{@@# include} command.
+
+@node cmr_model.mod
+@subsection cmr_model.mod
+The file @code{cmr_model.mod} contains the model equations.  Extensive
+use is made of model-local variables in order to reduce the size
+of the linearized economy.  More information about the @code{model} block
+can be found at @uref{http://www.dynare.org/manual/index_15.html}.
+This file is included in
+@code{cmr.mod} using the @code{@@# include} command.
+
+@node cmr_parameters.mod
+@subsection cmr_parameters.mod
+The file @code{cmr_parameters.mod} calibrates initial values of
+the parameters. This file is included in
+@code{cmr.mod} using the @code{@@# include} command.
+
+@node cmr_shocks.mod
+@subsection cmr_shocks.mod
+The file @code{cmr_shocks.mod} declares the shocks in the
+@code{shocks} block.
+More information about the @code{estimated_params_init} block
+can be found at @uref{http://www.dynare.org/manual/index_18.html}.
+This file is included in
+@code{cmr.mod} using the @code{@@# include} command.
+
+@node cmr_steadystate.m
+@subsection cmr_steadystate.m
+The file @code{cmr_steadystate.m} 
+computes the steady state of the model.  This is called by numerous
+Dynare routines.
+
+@node data_BAAoverTB.mat
+@subsection data_BAAoverTB.mat
+The file @code{data_BAAoverTB.mat} contains the observation
+data.  The names must be the same as those used in the @code{varobs}
+command.
+
+@node Custom Dynare Files
+@section Custom Dynare Files
+This package includes a directory named @code{dynare_code} that contains
+several custom dynare files.  The files are listed below with a brief
+description of the reason they are included.  Please note that the
+copyright of these files remains with the Dynare Team.  As permited by
+the Dynare Team, these files are distributed under version 3 of the GNU
+General Public License (@pxref{GNU General Public License}).
+
+@menu
+* disp_th_moments.m::
+* draw_prior_density.m::
+* prior_bounds.m::
+* priordens.m::
+* set_prior.m::
+@end menu
+
+@node disp_th_moments.m
+@subsection disp_th_moments.m
+The file @code{disp_th_moments.m} is modified to allow several variables
+of interest to be returned as return values.
+
+@node draw_prior_density.m
+@subsection draw_prior_density.m
+The file @code{draw_prior_density.m} is modified to allow the Weibull prior
+when @code{options_.weibull = 1}.
+
+@node prior_bounds.m
+@subsection prior_bounds.m
+The file @code{prior_bounds.m} is modified to allow the Weibull prior
+when @code{options_.weibull = 1}.
+
+@node priordens.m
+@subsection priordens.m
+The file @code{priordens.m} is modified to allow the Weibull prior
+when @code{options_.weibull = 1}.
+
+@node set_prior.m
+@subsection set_prior.m
+The file @code{set_prior.m} is modified to allow the Weibull prior
+when @code{options_.weibull = 1}.

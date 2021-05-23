@@ -1,0 +1,108 @@
+@c Copyright (C)  2013 Benjamin K. Johannsen
+@c Permission is granted to copy, distribute and/or modify
+@c this document under the terms of the GNU Free
+@c Documentation License, Version 1.3 or any later version
+@c published by the Free Software Foundation; with no
+@c Invariant Sections, no Front-Cover Texts, and no
+@c Back-Cover Texts.  A copy of the license is included in
+@c the section entitled ``GNU Free Documentation License''.
+
+Though none of these coding standards are required to implement
+the model, they are intended to improve readability and
+maintainability of the code.  The standards are described here
+to help the reader understand the naming conventions as well
+as other decisions made with regard to the code's style.
+
+@menu
+* Declarations::
+* Names::
+* Model-Local Variables::
+* Spacing of Model Equations::
+* Line Length::
+@end menu
+
+@node Declarations
+@section Declarations
+Declarations of variables and parameters using the @code{var}, 
+@code{varexo}, and @code{parameters} commands 
+should occur on separate lines for each parameter or variable.
+Additionally, parameter and variables names should be alphebatized in the 
+declaration. For example,
+@example
+var
+x,
+y,
+z;
+@end example
+
+@node Names
+@section Names
+For continuity, distinctions are made regarding the way objects are named.
+@menu
+* Variables::
+* Parameters::
+* Exogenous Variables::
+* Observable Variables::
+@end menu
+
+@node Variables
+@subsection Variables
+Variables declared in the @code{var} command should have 
+names consisting only of letters and numbers.  Additionally, the names
+should be reflective of the symbols used for the same concept
+in the manuscript.
+Underscores are explicitly omitted.  This keeps the length of variable names 
+from getting so long that the model block becomes unwieldy.  It also
+gives the underscore particular meaning when naming other objects.
+
+@node Parameters
+@subsection Parameters
+Parameters declared in the @code{parameters} command should have
+names that consist of letters and numbers followed by an @code{_p}.
+The @code{_p} makes parameters explicit when defining model equations.
+
+@node Exogenous Variables
+@subsection Exogenous Variables
+Exogenous variables declared in the @code{varexo} command should have
+names that begin with @code{e_} and then consist of only letters and numbers.
+The @code{e_} makes exogenous variables explicit when defining model equations.
+
+@node Observable Variables
+@subsection Observable Variables
+Observable variables declared in the @code{varobs} command should be appended
+with @code{_obs}.  This makes clear the observation equations in the model.
+
+@node Model-Local Variables
+@section Model-Local Variables
+When model-local variables are defined in the model block with 
+the @code{#} command, use the same conventions as for other names.
+However, because these expressions are pasted as text strings into the model file,
+the variables cannot be indexed by time and it is often
+necessary to define a one-step-ahead or one-step-behind version of the variable.
+In that case, append a @code{p1} to the end to indicate 
+one step ahead or @code{m1} to indicate one step behind.
+Additionally, when defining a model-local variable, 
+the entire expression on the right-hand-side of the equals sign
+should be enclosed in a set of parentheses.  
+This ensures that the entire block of code will be multiplied, exponentiated, etc. 
+when pasted in to the model block by the preprocessor.
+
+@node Spacing of Model Equations
+@section Spacing of Model Equations
+The arithmetic expressions @code{+}, @code{-}, @code{*}, @code{/}, and @code{=} 
+should be preceeded and followed by one space.  
+It is occasionally acceptable add additional spaces before or after these 
+operators in order to align similar equations.
+Additionally, for expressions within exponents it is acceptable to omit the 
+spaces for ease of readability.
+Left parentheses should not be followed by a space.  Similarly, right
+parentheses should not be preceeded by a space.
+The expression @code{^} should not be preceeded by or followed by a space.
+
+@node Line Length
+@section Line Length
+Code should be limited to 75 characters per line.
+The lone exception is in the model block, where equations are often more 
+readable when allowed to exceed this limit.
+If more than one line is used for a single equation in the model block, 
+new lines should begin with a @code{+}, @code{-}, @code{*}, or @code{/}.

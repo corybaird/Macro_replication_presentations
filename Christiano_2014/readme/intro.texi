@@ -1,0 +1,83 @@
+@c Copyright (C)  2013 Benjamin K. Johannsen
+@c Permission is granted to copy, distribute and/or modify
+@c this document under the terms of the GNU Free
+@c Documentation License, Version 1.3 or any later version
+@c published by the Free Software Foundation; with no
+@c Invariant Sections, no Front-Cover Texts, and no
+@c Back-Cover Texts.  A copy of the license is included in
+@c the section entitled ``GNU Free Documentation License''.
+
+@cindex GNU General Public License
+This package is a collection of routines that implement
+the @sc{CMR} model. 
+The source code is distributed under the GNU
+General Public License, a copy of which is included in this document
+(@pxref{GNU General Public License}).
+The manual is distribted under the
+(@pxref{GNU Free Documentation License}).  
+The code makes extensive use of the Dynare software package for solving
+and estimating DSGE models.  
+The choice of license
+is for practical and required reasons.  The code is meant to be
+as freely available as possible.  Additionally, the model requires
+several files from Dynare, which are licensed under the GNU
+General Public License.  In order to comply with the terms of
+that license, all code released here is also licensed to any user
+under the GNU General Public License.
+
+You should know that the code provided has no warranty.  
+The code is provided ``as is.''
+
+Any system with Matlab (version 7.0 or above) or GNU Octave (versions
+3.0 or above) and Dynare (version 4.3.2) should be able to use the code.
+Matlab must be purchased from MathWorks
+@uref{http://www.mathworks.com/products/matlab/}.
+GNU Octave is free software and can be downloaded from
+@uref{http://www.gnu.org/software/octave/}.
+Dynare is also free software and can be downloaded from
+@uref{http://www.dynare.org/}.
+
+
+@menu
+* Installation::
+* Using Dynare::
+* A Note on Dynare Version::
+@end menu
+
+@node Installation
+@section Installation
+The model code must be in the current working directory of Matlab or
+Octave.  To see the name of the current working directory,
+issue the command
+@example 
+>> pwd
+@end example
+@noindent To see the names of the files in the current working directory,
+issue the command
+@example
+>> ls
+@end example
+@noindent To change directories, use the @code{cd} command.
+
+@node Using Dynare
+@section Using Dynare
+The library requires that the Dynare be installed and available
+to Matlab or Octave.
+Use the @code{addpath} command to add the path to the installation
+of Dynare.  To ensure that Matlab or Octave can find @code{dynare},
+issue the command
+@example
+>> which dynare
+@end example
+@noindent If you see @code{'dynare' not found.}, the path
+to Dynare has not been added.
+
+@node A Note on Dynare Versions
+@section A Note on Dynare Versions
+The code distributed here is compatible
+with dynare 4.3.2.  Unfortunately, several of the changes made in Dynare 4.3.3
+affected the files needed to implement the Weibull distribution, which is
+used in the prior for the measurement error of equity.  With minor modification,
+the user should be able to use any version of Dynare in the future.  However,
+to replicate the results using the code provided here, the user should
+use dynare 4.3.2.

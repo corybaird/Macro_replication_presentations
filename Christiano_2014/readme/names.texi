@@ -1,0 +1,439 @@
+@c Copyright (C)  2013 Benjamin K. Johannsen
+@c Permission is granted to copy, distribute and/or modify
+@c this document under the terms of the GNU Free
+@c Documentation License, Version 1.3 or any later version
+@c published by the Free Software Foundation; with no
+@c Invariant Sections, no Front-Cover Texts, and no
+@c Back-Cover Texts.  A copy of the license is included in
+@c the section entitled ``GNU Free Documentation License''.
+
+@menu
+* Endogenous Variable Names::
+* Observable Variable Names::
+* Exogenous Variable Names::
+* Parameter Names::
+@end menu
+
+Names used in the code are here matched to their concepts in the
+manuscript.
+@node Endogenous Variable Names
+@section Endogenous Variable Names
+
+@table @code
+@item c
+@math{c_t \equiv C_t / z_t^*}, scaled aggregate consumption
+
+@item epsil
+@math{\epsilon_t}, technology shock
+ 
+@item Fp
+@math{F_{p, t}}, convenience variable for price evolution
+
+@item Fw
+@math{F_{w, t}}, convenience variable for wage evolution
+
+@item g
+@math{g_t \equiv G_t / z_t^*}, scaled government purchases
+
+@item gamma
+@math{\gamma_t}, equity shock
+
+@item h
+@math{h_t}, hours
+
+@item i
+@math{i_t\equiv I_t/z_t^*\Upsilon^t}, scaled investment
+
+@item kbar
+@math{\bar{k}_{t+1} \equiv \bar{K}_{t+1}/z_t^*}, scaled entrepreneurial capital
+
+@item lambdaf
+@math{\lambda_{f, t}}, intermediate goods shock
+ 
+@item lambdaz
+@math{\lambda_{z, t}}, marginal utility of consumption
+
+@item muup
+@math{\mu_{\Upsilon, t}}, investment goods technology shock
+
+@item muzstar 
+@math{\mu_{z^*, t}}, growth rate of @math{z_t^*}
+
+@item n
+@math{n_{t+1}}, entrepreneurial net worth
+
+@item omegabar
+@math{\bar{\omega}_t}, the @math{\omega} 
+separating bankrupt and non-bankrupt entrepreneurs
+
+@item phi
+@math{\phi}, fixed cost that ensures zero profits
+
+@item pi
+@math{\pi_t \equiv P_{t}/P_{t-1}}, inflation
+
+@item pitarget
+@math{\pi_t^{target}}, inflation rate in the monetary authority's
+policy rule
+
+@item pstar
+@math{p_t^*}, useful variable in pricing equations
+
+@item q
+@math{q_t\equiv \Upsilon^{t}Q_{\bar{K}^{\prime},t}/P_{t}}, 
+scaled market price of capital
+
+@item Re
+@math{R_t}, risk-free rate of interest
+
+@item rL
+real-risk-free-10-year rate of interst
+
+@item rk
+@math{r_t^k}, rental rate of capital
+
+@item Rk
+@math{R_t^k}, return on capital
+
+@item RL
+nominal-risk-free-rate-10-year rate of interest
+ 
+@item s
+@math{s_t}, marginal cost
+
+@item sigma
+@math{\sigma_t}, risk shock
+
+@item term
+term structure of interest rates
+
+@item u
+@math{u_t}, utilization rate of capital
+
+@item wtilde
+@math{\tilde{w}_t}, scaled real wage
+
+@item wstar
+@math{w_t^*}, useful variable in wage equations
+
+@item xi0, xi1, xi2, xi3, xi4, xi5, xi6, xi7, xi8
+@math{\xi_{0,t}, \xi_{1,t}, \xi_{2,t}, \xi_{3,t}, \xi_{4,t}, \xi_{5,t}, \xi_{6,t}, \xi_{7,t}, \xi_{8,t}}, news shocks
+
+@item zetac
+@math{\zeta_{c,t}}, preference shock on consumption
+
+@item zetai
+@math{\zeta_{I,t}}, maginal efficiency of investment
+
+@end table
+
+
+@node Observable Variable Names
+@section Observable Variable Names
+
+@table @code
+
+@item consumption_obs
+@math{c_t \mu_{z^*, t} / (c_{t-1} \mu_{z^*})},
+
+@item credit_obs
+@math{(q_t * \bar{k}_t - n_t) / 
+(q_{t-1} \bar{k}_{t-1} - n_{t-1}) \mu_{z^*,t} / \mu_{z^*}}
+
+@item gdp_obs
+@math{(c_t + i_t / \mu_{\Upsilon,t} + g_t) \mu_{z^*, t}/ (c_{t-1} + i_{t-1} 
+/ \mu_{\Upsilon,t-1} + g_{t-1}) / \mu_{z^*}}
+
+@item hours_obs
+@math{h_t / h}
+
+@item inflation_obs
+@math{\pi_t/ \pi}
+
+@item investment_obs
+@math{i_t \mu_{z^*, t} / (i_{t-1} \mu_{z^*})}
+
+@item networth_obs
+@math{n_t \mu_{z^*, t} / (n_{t-1} \mu_{z^*})}
+
+@item pinvest_obs
+@math{\mu_{\Upsilon, t-1} / \mu_{\Upsilon, t}}
+
+@item premium_obs
+
+@item Re_obs
+@math{\exp(Re - Re_p)}
+
+@item RealRe_obs
+@math{((1 + R_t) / \pi_{t+1})/((1 + R) / \pi)}
+
+@item Spread1_obs
+@math{1 + RL_t - R_t}
+
+@item wage_obs
+@math{\tilde{w}_t \mu_{z^*, t} / (\tilde{w}_{t-1} \mu_{z^*})}
+
+@end table
+
+@node Exogenous Variable Names
+@section Exogenous Variable Names
+The endogenous variables 
+@math{\epsilon_t}, @math{g_t}, @math{\gamma_t},
+@math{\lambda_{f,t}}, @math{\mu_{\Upsilon,t}}, @math{\mu_{z^*, t}},
+@math{\pi_t^{target}}, @math{\sigma_t}, @math{term_t},
+@math{\zeta_{c,t}}, and @math{\zeta_{i,t}} have an AR(1) representation.
+When an exogenous variable is the shock to one of those variables in
+the AR(1) representation, we will call it a shock to that variable.
+@table @code
+@item e_epsil
+shock to @math{\epsilon_t}
+
+@item e_g
+shock to @math{g_t}
+
+@item e_gamma
+shock to @math{\gamma_t}
+
+@item e_lambdaf
+shock to @math{\lambda_{f,t}}
+
+@item e_muup
+shock to @math{\mu_{\Upsilon,t}}
+
+@item e_muzstar
+shock to @math{\mu_{z^*,t}}
+
+@item e_pitarget
+shock to @math{\pi_t^{target}}
+
+@item e_sigma
+shock to @math{\sigma_t}
+
+@item e_xi1, e_xi2, e_xi3, e_xi4, e_xi5, e_xi6, e_xi7, e_xi8
+shocks to @math{\xi_{0,t}, \xi_{1,t}, \xi_{2,t}, \xi_{3,t}, \xi_{4,t}, \xi_{5,t}, \xi_{6,t}, \xi_{7,t}, \xi_{8,t}}
+
+@item e_term
+shock to @math{term_t}
+
+@item e_xp
+monetary policy shock
+
+@item e_zetac
+shock to @math{\zeta_{c,t}}
+
+@item e_zetai
+shock to @math{\zeta_{i,t}}
+
+@end table
+@node Parameter Names
+@section Parameter Names
+
+@table @code
+@item actil_p,
+parameter in generalized monetary policy rule
+
+@item adptil_p
+parameter in generalized monetary policy rule
+
+@item adytil_p
+parameter in generalized monetary policy rule
+
+@item alpha_p
+@math{\alpha} in Cobb-Douglas production technology
+
+@item aptil_p
+@math{\tilde{a}_{\pi}} in monetary policy rule
+
+@item aytil_p
+@math{\tilde{a}_{y}} in monetary policy rule
+
+@item b_p
+@math{b} habit parameter in utility
+
+@item beta_p
+@math{\beta} time-discounting parameter in utility
+
+@item bigtheta_p
+@math{\Theta} determines resources used for state-verification in resource constraint
+
+@item c_p
+parameter in generalized monetary policy rule
+
+@item delta_p
+@math{\delta} depreciation parameter
+
+@item etag_p
+@math{\eta_g} determines the percentage of output consumed by the government in steady state
+
+@item epsil_p
+mean of the process for @math{\epsilon_t}
+
+@item g_p
+parameter in generalized monetary policy rule
+
+@item gamma_p
+mean of the process for @math{\gamma_t}
+
+@item i_p
+parameter in generalized monetary policy rule
+
+@item iota_p
+@math{\iota} in definition of @math{\tilde{\pi}_t}
+
+@item iotaw_p
+@math{\iota_w} in definition of @math{\tilde{\pi}_{w,t}}
+
+@item iotamu_p
+@math{\iota_\mu} in equation for @math{W_{i,t}}
+
+@item lambdaf_p
+mean of process for @math{\lambda_{f,t}}
+
+@item lambdaw_p
+@math{\lambda_w} in the wage aggregation technology
+
+@item mu_p
+@math{\mu} growth rate
+
+@item muup_p
+mean of process for @math{\mu_{\Upsilon,t}}
+
+@item muzstar_p
+mean of process for @math{\mu_{z,t}^*}
+
+@item pi_p
+@math{\pi} mean inflation
+
+@item pibar_p
+@math{\bar{\pi}} indexation parameter
+
+@item pitarget_p
+mean of target inflation
+
+@item psiL_p
+@math{\Psi_L} wage bill financing
+
+@item Re_p
+mean risk free rate
+
+@item rhoepsil_p
+AR(1) parameter for the process @math{\epsilon_t}
+
+@item rhog_p
+AR(1) parameter for the process @math{g_t}
+
+@item rhogamma_p
+AR(1) parameter for the process @math{\gamma_t}
+
+@item rholambdaf_p
+AR(1) parameter for the process @math{\lambda_{f,t}}
+
+@item rhomuup_p
+AR(1) parameter for the process @math{\mu_{\Upsilon,t}}
+
+@item rhomuzstar_p
+AR(1) parameter for the process @math{\mu_{z,t}^*}
+
+@item rhopitarget_p
+AR(1) parameter for the process @math{\pi_{t}^*}
+
+@item rhosigma_p
+AR(1) parameter for the process @math{\sigma_t}
+
+@item rhoterm_p
+AR(1) parameter for the process @math{term_t}, which is the term structure variable
+
+@item rhotil_p
+@math{\tilde{\rho}} persistence in the monetary policy equation
+
+@item rhozetac_p
+AR(1) parameter for the process @math{\zeta_{c,t}}
+
+@item rhozetai_p
+AR(1) parameter for the process @math{\zeta_{i,t}}
+
+@item rk_p
+Used to determine utilization cost for output
+
+@item Sdoupr_p
+@math{S'} in definition of adjustment costs
+
+@item signal_corr_p
+governs correlation among news signals
+
+@item sigmaa_p
+@math{\sigma_a} utilization cost function
+
+@item sigmaL_p
+@math{\sigma_L} preference parameter for labor
+ 
+@item stdepsil_p
+standard deviation of the inovation to the process @math{\epsilon_t}
+
+@item stdg_p
+standard deviation of the inovation to the process @math{g_t}
+
+@item stdgamma_p
+standard deviation of the inovation to the process @math{\gamma_t}
+
+@item stdlambdaf_p
+standard deviation of the inovation to the process @math{\lambda_{f,t}}
+
+@item stdmuup_p
+standard deviation of the inovation to the process @math{\mu_{\Upsilon,t}}
+
+@item stdmuzstar_p
+standard deviation of the inovation to the process @math{\mu_{z,t}^*}
+
+@item stdpitarget_p
+standard deviation of the inovation to the process @math{\pi^*_t}
+
+@item stdsigma1_p
+standard deviation of contemporaneous component of the signals
+
+@item stdsigma2_p
+standard deviation of news component of the signals
+
+@item stdterm_p
+standard deviation of the inovation to the process @math{term_t}, which is the term structure
+
+@item stdzetac_p
+standard deviation of the inovation to the process @math{\zeta_{c,t}}
+
+@item stdzetai_p
+standard deviation of the inovation to the process @math{\zeta_{i,t}}
+
+@item tauc_p
+@math{\tau^c} consumption tax rate
+
+@item taud_p
+@math{\tau^d} bond tax rate
+
+@item tauk_p
+@math{\tau^k} capital tax rate
+
+@item taul_p
+@math{\tau^l} wage tax rate
+
+@item term_p
+mean of the process @math{term_t} which governs the term structure
+
+@item tauo_p
+@math{\tau^o} appears in efficiency condition for capital utilization
+
+@item upsil_p
+@math{\Upsilon} growth parameter
+
+@item we_p
+@math{w^e} lump-sum transfer to entrepreneurs
+
+@item zeta_p
+@math{\zeta_t} in equation 6
+
+@item zetac_p
+mean of the process @math{\zeta_{c,t}}
+
+@item zetai_p
+mean of the process @math{\zeta_{i,t}}
+
+@end table
